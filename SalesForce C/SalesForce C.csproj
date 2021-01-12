@@ -180,24 +180,6 @@
   -->
   <ItemGroup>
     <Compile Include="Common.cs" />
-    <Compile Include="fConnect.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fConnect.Designer.cs">
-      <DependentUpon>fConnect.cs</DependentUpon>
-    </Compile>
-    <Compile Include="fCrit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fCrit.Designer.cs">
-      <DependentUpon>fCrit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="fParamSQL.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fParamSQL.Designer.cs">
-      <DependentUpon>fParamSQL.cs</DependentUpon>
-    </Compile>
     <Compile Include="fPasse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,21 +195,6 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="pEx.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="pEx.Designer.cs">
-      <DependentUpon>pEx.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="fConnect.resx">
-      <DependentUpon>fConnect.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fCrit.resx">
-      <DependentUpon>fCrit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fParamSQL.resx">
-      <DependentUpon>fParamSQL.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="fPasse.resx">
       <DependentUpon>fPasse.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,9 +213,6 @@
     </Compile>
     <EmbeddedResource Include="rExtract.resx">
       <DependentUpon>rExtract.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="pEx.resx">
-      <DependentUpon>pEx.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
@@ -291,6 +255,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Extrac3t.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\liste.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExportSF.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bControlListe.fw.png" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

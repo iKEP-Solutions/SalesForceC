@@ -63,6 +63,26 @@ namespace Extract.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bControlListe_fw {
+            get {
+                object obj = ResourceManager.GetObject("bControlListe.fw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExportSF_fw {
+            get {
+                object obj = ResourceManager.GetObject("ExportSF.fw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Extrac2t_fw {
             get {
                 object obj = ResourceManager.GetObject("Extrac2t.fw", resourceCulture);
@@ -106,6 +126,16 @@ namespace Extract.Properties {
         internal static System.Drawing.Bitmap info3_fw {
             get {
                 object obj = ResourceManager.GetObject("info3.fw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap liste_fw {
+            get {
+                object obj = ResourceManager.GetObject("liste.fw", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
