@@ -3,6 +3,10 @@ using System.Data.OleDb;
 using System.Windows.Forms;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
+using System.IO;
+using System.Text;
+using System.Net.Security;
 
 namespace Extract
 {
@@ -519,6 +523,70 @@ namespace Extract
 
         #endregion
 
+        #region "Web"
 
+
+        private static bool ValidateServerCertificate(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
+        {
+            return true;
+        }
+
+
+
+        public static string GetToken()
+        {
+            try
+            {
+                string ci = "3MVG96_7YM2sI9wQABeq0AIaw82egfFvI2njKlSDeEFuAfyayudvZMSYsxgL7XNaa2LTL1U5AbXvXUxWoQidK";
+                string cs = "C0C489E1D4F77FABDC571C26072100357B9126D407BE16BE1C21C261698C74CF";
+                string un = "laurent.valcasara@kep-technologies.com";
+                string pw = "M@ia2018B7qzRvQpyPu8gNUD86MzufepC";
+                string ui = "https://login.salesforce.com/services/oauth2/token";
+
+    
+                ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(ValidateServerCertificate);
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+                string tokenRequestBody = "grant_type=password&client_id=" + ci + "&client_secret=" + cs + "&username=" + un + "&password=" + pw;
+
+                // sends the request
+                HttpWebRequest tokenRequest = (HttpWebRequest)WebRequest.Create(ui);
+                tokenRequest.Method = "POST";
+                tokenRequest.ContentType = "application/x-www-form-urlencoded";
+                tokenRequest.Accept = "Accept=text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
+                byte[] tokenRequestBytes = Encoding.ASCII.GetBytes(tokenRequestBody);
+                tokenRequest.ContentLength = tokenRequestBytes.Length;
+                Stream stream = tokenRequest.GetRequestStream();
+                stream.Write(tokenRequestBytes, 0, tokenRequestBytes.Length);
+                stream.Close();
+
+                try
+                {
+                    WebResponse tokenResponse = tokenRequest.GetResponse();
+                    StreamReader reader = new StreamReader(tokenResponse.GetResponseStream());
+                    string responseText = reader.ReadToEnd();
+                  
+                    // converts to dictionary
+                    //                Dictionary<string, string> tokenEndpointDecoded = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(responseText);
+
+                                     //string accessToken = tokenEndpointDecoded["access_token"];
+                                     //return accessToken;
+                    return responseText;
+                }
+                catch (WebException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return null;
+                }
+
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+
+        #endregion
     }
 }

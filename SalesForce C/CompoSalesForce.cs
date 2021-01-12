@@ -9,7 +9,7 @@ using Microsoft.Office.Tools.Excel;
 
 namespace Extract
 {
-    public partial class CompoExtract
+    public partial class CompoSalesForce
     {
         private void CompoExtract_Startup(object sender, System.EventArgs e)
         {

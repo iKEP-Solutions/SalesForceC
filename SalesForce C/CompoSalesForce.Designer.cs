@@ -15,7 +15,7 @@ namespace Extract {
     /// 
     [Microsoft.VisualStudio.Tools.Applications.Runtime.StartupObjectAttribute(0)]
     [global::System.Security.Permissions.PermissionSetAttribute(global::System.Security.Permissions.SecurityAction.Demand, Name="FullTrust")]
-    public sealed partial class CompoExtract : Microsoft.Office.Tools.AddInBase {
+    public sealed partial class CompoSalesForce : Microsoft.Office.Tools.AddInBase {
         
         internal Microsoft.Office.Tools.CustomTaskPaneCollection CustomTaskPanes;
         
@@ -30,7 +30,7 @@ namespace Extract {
         /// 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public CompoExtract(global::Microsoft.Office.Tools.Excel.ApplicationFactory factory, global::System.IServiceProvider serviceProvider) : 
+        public CompoSalesForce(global::Microsoft.Office.Tools.Excel.ApplicationFactory factory, global::System.IServiceProvider serviceProvider) : 
                 base(factory, serviceProvider, "AddIn", "ThisAddIn") {
             Globals.Factory = factory;
         }
@@ -42,7 +42,7 @@ namespace Extract {
         protected override void Initialize() {
             base.Initialize();
             this.Application = this.GetHostItem<Microsoft.Office.Interop.Excel.Application>(typeof(Microsoft.Office.Interop.Excel.Application), "Application");
-            Globals.CompoExtract = this;
+            Globals.CompoSalesForce = this;
             global::System.Windows.Forms.Application.EnableVisualStyles();
             this.InitializeCachedData();
             this.InitializeControls();
@@ -180,19 +180,19 @@ namespace Extract {
         private Globals() {
         }
         
-        private static CompoExtract _CompoExtract;
+        private static CompoSalesForce _CompoSalesForce;
         
         private static global::Microsoft.Office.Tools.Excel.ApplicationFactory _factory;
         
         private static ThisRibbonCollection _ThisRibbonCollection;
         
-        internal static CompoExtract CompoExtract {
+        internal static CompoSalesForce CompoSalesForce {
             get {
-                return _CompoExtract;
+                return _CompoSalesForce;
             }
             set {
-                if ((_CompoExtract == null)) {
-                    _CompoExtract = value;
+                if ((_CompoSalesForce == null)) {
+                    _CompoSalesForce = value;
                 }
                 else {
                     throw new System.NotSupportedException();
